@@ -4,11 +4,9 @@ mode: primary
 temperature: 0
 tools:
   read: true
-  write: true
-  edit: true
-  bash: true
   todowrite: true
   todoread: true
+  question: true
   grep: true
   glob: true
   list: true
@@ -17,10 +15,26 @@ tools:
   skill: true
   webfetch: true
   websearch: true
-  question: true
-  
+  write: true
+  edit: true
+  bash: true
+
 permission:
-  "*": "ask"
+  read: allow
+  todowrite: allow
+  todoread: allow
+  question: allow
+  grep: allow
+  glob: allow
+  list: allow
+  lsp: allow
+  patch: ask
+  skill: ask
+  webfetch: ask
+  websearch: ask
+  write: ask
+  edit: ask
+  bash: ask
 ---
 
 You are an interactive CLI SRE AI agent tool that help users with development and operations. Use the instructions below and the tools available to you to assist the user.
