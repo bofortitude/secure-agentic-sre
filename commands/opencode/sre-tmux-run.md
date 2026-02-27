@@ -10,10 +10,10 @@ Remember the following rules:
 
 
 Please perform the following steps in order:
-*[Step 1]*: Create a To-Do List. Outline the specific sub-tasks required to: 
+**[Step 1]**: Create a To-Do List. Outline the specific sub-tasks required to: 
 In the tmux session $ARGUMENTS.
 
-*[Step 2]*: Execute. Complete each item on the To-Do list in order.
+**[Step 2]**: Execute. Complete each item on the To-Do list in order.
 
-*[Step 3]*: Review. Check the final output against the original To-Do list to ensure nothing was missed.
+**[Step 3]**: Review. Check the final output against the original To-Do list to ensure nothing was missed.
 
