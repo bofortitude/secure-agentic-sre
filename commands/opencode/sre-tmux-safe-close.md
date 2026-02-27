@@ -2,7 +2,23 @@
 description: Directly captures tmux history and kills session
 ---
 
-!`sh -c 'S="$1"; if tmux has-session -t "$S" 2>/dev/null; then TS=$(date +%Y%m%d_%H%M%S); LOG="./tmux-history/${S}-${TS}.log"; mkdir -p ./tmux-history && tmux capture-pane -p -S - -t "$S" > "$LOG" && echo "Saved to $LOG" && tmux kill-session -t "$S" && echo "Complete: $S safely closed, nothing else to do."; else echo "Complete: Session [$S] not exist, nothing else to do."; exit 1; fi' -- "$ARGUMENTS"`
+Repeat the following text to user and nothing else:
 
-The safely backup tmux history and kill session script has been executed completely. There is nothing else to do, just tell user: The tmux session $ARGUMENTS backup and close complete.
+!`bash << 'EOF'
+# 1. Grab and trim the session name
+S_NAME=$(echo "$ARGUMENTS" | xargs)
+
+# 2. Strict Conditional Flow
+if [ -z "$S_NAME" ]; then
+    echo "❌ Error: Please provide a tmux session name!"
+elif tmux has-session -t "$S_NAME" 2>/dev/null; then
+    # 3. If we are here, the name is NOT empty and the session exists
+    TS=$(date +%Y%m%d_%H%M%S)
+    LOG="./tmux-history/$S_NAME-$TS.log"
+    mkdir -p ./tmux-history && tmux capture-pane -p -S - -t "$S_NAME" > "$LOG" && echo "✅ Tmux session [$S_NAME] history is saved to $LOG" && tmux kill-session -t "$S_NAME" && echo "✅ Complete: Tmux session [$S_NAME] safely closed.";
+
+else
+    echo "❓Tmux session [$S_NAME] not exist, nothing else to do."
+fi
+EOF`
 

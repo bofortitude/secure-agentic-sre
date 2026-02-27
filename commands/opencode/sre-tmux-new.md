@@ -2,7 +2,7 @@
 description: Create a new tmux session if not exists.
 ---
 
-Tell user:
+Repeat the following text to user and nothing else:
 
 !`bash << 'EOF'
 # 1. Grab and trim the session name
