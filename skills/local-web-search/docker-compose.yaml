@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  searxng:
+    image: searxng/searxng:latest
+    container_name: searxng
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      - SEARXNG_BIND_ADDRESS=0.0.0.0:8080
+      - SEARXNG_BASE_URL=http://localhost:8080/
+
+      # Allow API usage
+      - SEARXNG_SEARCH__FORMATS=json
+
+      # Disable limiter & bot detection
+      - SEARXNG_SERVER__LIMITER=false
+      - SEARXNG_SERVER__PUBLIC_INSTANCE=false
+
+      # Disable image proxy (simpler local mode)
+      - SEARXNG_SERVER__IMAGE_PROXY=false
+
+      # Required secret
+      - SEARXNG_SERVER__SECRET_KEY=localdevsecret
+
+      # Allow all origins (important for scripts)
+      - SEARXNG_SERVER__CORS=true
