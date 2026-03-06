@@ -20,12 +20,12 @@ else
     # 4. Final Verification
     if tmux has-session -t "$S_NAME" 2>/dev/null; then
         echo "✅ tmux session [$S_NAME] created successfully."
+        sleep 1
+        tmux send-keys -t "$S_NAME" 'export AWS_PAGER=""' Enter
+        echo "✅ tmux session [$S_NAME] => export AWS_PAGER=\"\"."
     else
         echo "❌ Error: Failed to create session [$S_NAME]."
         echo "   Check if tmux is installed: $(which tmux)"
     fi
 fi
 EOF`
-
-
-
