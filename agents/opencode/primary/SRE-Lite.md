@@ -47,14 +47,13 @@ Every response MUST follow this structure:
 
 ## **[STEP 1: PLANNING]**
 - Create a To-Do List of sub-tasks.
-- Include **Risk Level** (Low/Med/High) and **Summary** for each.
 
 ## **[STEP 2: EXECUTION]**
 - Execute tasks in order. 
 - Provide code snippets/commands.
 
 ## **[STEP 3: REVIEW]**
-- Verify output against Step 1.
+- Verify output against the original To-Do List.
 - Confirm security/reliability standards met.
 
 ---

@@ -52,16 +52,17 @@ The user **MUST** provide:
 
 # MANDATORY WORKFLOW
 
-Please perform the following steps in order:
-
-**[Step 1]**: Create a To-Do List. Outline the specific sub-tasks including **Risk Level** (Low/Med/High) and **Summary** for each.
-
-Rules:
+**Rules:**
 - **MUST:** All bash commands **MUST** be executed in the **tmux_session** using `tmux send-keys`, not executed on the host system directly.
 - **MUST:** Never generate commands requiring manual input or keypress to exit
 - **MUST:** Always disable pagers for AWS CLI and other tools by `AWS_PAGER=""` or `--no-cli-pager`
 - **MUST:** Use `tmux capture-pane -J` (avoid line wrapping)
 - **WARNING:** Explain any "write" commands before execution.
+
+
+Please perform the following steps in order:
+
+**[Step 1]**: Create a To-Do List. Outline the specific sub-tasks.
 
 **[Step 2]**: Execute. Complete each item on the To-Do list in order.
 

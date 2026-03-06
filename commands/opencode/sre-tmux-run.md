@@ -9,7 +9,7 @@ description: Execute tasks in tmux session with rules.
 - **WARNING:** Explain any "write" commands before execution.
 
 Please perform the following steps in order:
-**[Step 1]**: Create a To-Do List. Outline the specific sub-tasks including **Risk Level** (Low/Med/High) and **Summary** for each to: 
+**[Step 1]**: Create a To-Do List. Outline the specific sub-tasks required to: 
 In the tmux session $ARGUMENTS.
 
 **[Step 2]**: Execute. Complete each item on the To-Do list in order.
