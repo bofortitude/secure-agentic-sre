@@ -1,0 +1,17 @@
+services:
+  searxng:
+    container_name: searxng
+    image: searxng/searxng:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./searxng:/etc/searxng
+    environment:
+      - SEARXNG_SETTINGS_PATH=/etc/searxng/settings.yml
+    restart: always
+
+  redis:
+    container_name: redis
+    image: redis:alpine
+    command: redis-server --save "" --appendonly no
+    restart: always

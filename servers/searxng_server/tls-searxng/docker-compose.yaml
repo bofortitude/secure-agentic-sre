@@ -1,0 +1,26 @@
+services:
+  searxng:
+    container_name: searxng
+    image: searxng/searxng:latest
+    # No ports exposed here - only accessible via nginx
+    volumes:
+      - ./searxng:/etc/searxng
+    environment:
+      - SEARXNG_SETTINGS_PATH=/etc/searxng/settings.yml
+    restart: always
+
+  redis:
+    container_name: redis
+    image: redis:alpine
+    command: redis-server --save "" --appendonly no
+    restart: always
+
+  nginx:
+    container_name: nginx-proxy
+    image: nginx:alpine
+    ports:
+      - "443:443"  # Only 443 is open to the public
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./certs:/etc/nginx/certs:ro
+    restart: always

@@ -1,0 +1,10 @@
+use_default_settings: true
+server:
+  secret_key: "a_very_long_secret_key_for_sre_project"
+  limiter: false           # <--- Add this: prevents AI from getting rate-limited
+  public_instance: false   # <--- Add this: tells SearXNG it's a private tool
+  image_proxy: true        # Optional: helps if the AI needs to process images
+search:
+  formats:
+    - html
+    - json
