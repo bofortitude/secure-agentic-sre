@@ -1,0 +1,31 @@
+MCP Server Setup Notes
+======================
+
+1. Initial Setup:
+   - Connected to MCP server (Ubuntu 22.04.1 LTS)
+   - Downloaded and installed Miniforge3 for conda package management
+
+2. Environment Creation:
+   - Created conda environment: docs-mcp-server
+   - Used --no-default-packages flag to create minimal environment
+   - Based on Python 3.12.12
+
+3. Node.js Installation:
+   - Activated docs-mcp-server environment
+   - Installed Node.js v25.6.0 via conda-forge channel
+   - Installation confirmed working with node --version command
+
+4. Install ollama
+  - curl -fsSL https://ollama.com/install.sh | sh
+  - ollama pull snowflake-arctic-embed2
+
+5. Install Docker
+
+
+Environment Details:
+- Miniforge3 installed at: /home/dev/miniforge3
+- Environment location: /home/dev/miniforge3/envs/docs-mcp-server
+- Node.js version: v25.6.0
+- Python version: 3.12.12
+
+This environment is ready for use for MCP server documentation tasks.

@@ -1,0 +1,49 @@
+services:
+  # Web Interface Only
+  docs-mcp-web:
+    image: ghcr.io/arabold/docs-mcp-server:latest
+    container_name: docs-mcp-web
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - ./docs:/docs
+      - ./data:/data
+      - ./config:/config
+    environment:
+      NODE_ENV: production
+      OPENAI_API_KEY: ollama
+      OPENAI_API_BASE: http://127.0.0.1:11434/v1
+      DOCS_MCP_EMBEDDING_MODEL: nomic-embed-text
+    command:
+      - "web"
+      - "--port"
+      - "6281"
+      - "--config"
+      - "/config/config.yaml"
+
+  # MCP Server Only
+  docs-mcp-server:
+    image: ghcr.io/arabold/docs-mcp-server:latest
+    container_name: docs-mcp-server
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - ./docs:/docs
+      - ./data:/data
+      - ./config:/config
+    environment:
+      NODE_ENV: production
+      OPENAI_API_KEY: ollama
+      OPENAI_API_BASE: http://127.0.0.1:11434/v1
+      DOCS_MCP_EMBEDDING_MODEL: nomic-embed-text
+    command:
+      - "mcp"
+      - "--protocol"
+      - "http"
+      - "--host"
+      - "0.0.0.0"
+      - "--port"
+      - "6280"
+      - "--config"
+      - "/config/config.yaml"
+

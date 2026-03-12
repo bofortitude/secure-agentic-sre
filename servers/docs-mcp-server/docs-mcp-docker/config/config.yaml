@@ -1,0 +1,11 @@
+docs:
+  roots:
+    - /docs
+
+index:
+  enabled: true
+  cacheDir: /data/index
+
+logging:
+  level: info
+
