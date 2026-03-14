@@ -1,7 +1,0 @@
-use_default_settings: true
-server:
-  secret_key: "a_very_long_secret_key_for_sre_project"
-search:
-  formats:
-    - html
-    - json
